@@ -6,6 +6,7 @@ import router from './router'
 import { sync } from 'vuex-router-sync'
 import store from './store'
 import VueResource from 'vue-resource'
+import VueCkeditor from 'vue-ckeditor2'
 import BackHeader from '@/components/Header.vue'
 import VueCkeditor from 'vue-ckeditor2'
 

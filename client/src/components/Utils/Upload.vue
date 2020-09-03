@@ -25,10 +25,15 @@ $event.target.files); fileCount = $event.target.files.length"
     </form>
   </div>
 </template>
+<<<<<<< HEAD
 
 <script>
 import UploadService from "@/services/UploadService";
 
+=======
+<script>
+import UploadService from "@/services/UploadService";
+>>>>>>> 62830604ec533e9db82bba0ac5458858ce1f4164
 const STATUS_INITIAL = 0,
   STATUS_SAVING = 1,
   STATUS_SUCCESS = 2,
@@ -46,6 +51,10 @@ export default {
       uploadedFileNames: [],
     };
   },
+<<<<<<< HEAD
+=======
+
+>>>>>>> 62830604ec533e9db82bba0ac5458858ce1f4164
   methods: {
     navigateTo(route) {
       console.log(route);
@@ -91,7 +100,10 @@ export default {
       setTimeout(() => this.reset(), 5000);
     },
   },
+<<<<<<< HEAD
 
+=======
+>>>>>>> 62830604ec533e9db82bba0ac5458858ce1f4164
   computed: {
     isInitial() {
       return this.currentStatus === STATUS_INITIAL;
@@ -100,7 +112,10 @@ export default {
       return this.currentStatus === STATUS_SAVING;
     },
     isSuccess() {
+<<<<<<< HEAD
       252;
+=======
+>>>>>>> 62830604ec533e9db82bba0ac5458858ce1f4164
       return this.currentStatus === STATUS_SUCCESS;
     },
     isFailed() {
@@ -133,7 +148,11 @@ export default {
 }
 .dropbox:hover {
   background: khaki; /* when mouse over to the drop zone, change color
+<<<<<<< HEAD
 */
+=======
+    */
+>>>>>>> 62830604ec533e9db82bba0ac5458858ce1f4164
 }
 .dropbox p {
   font-size: 1.2em;
