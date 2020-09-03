@@ -91,6 +91,8 @@ export default {
       setTimeout(() => this.reset(), 5000);
     },
   },
+
+
   computed: {
     isInitial() {
       return this.currentStatus === STATUS_INITIAL;

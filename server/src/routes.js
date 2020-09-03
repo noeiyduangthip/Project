@@ -103,6 +103,24 @@ module.exports = (app) => {
         try {
             const fs = require('fs');
             console.log(req.body.filename)
+
+            fs.unlink(process.cwd() + '/public/uploads/' + req.body.filename, (err) => {
+                if (err) throw err;
+                res.send("Delete sucessful")
+                // console.log('successfully deleted material file');
+            });
+        } catch (err) {
+            res.status(500).send({
+                error: 'An error has occured trying to delete file the material'
+            })
+        }
+    })
+
+    //delete file uploaded function
+    app.post('/upload/delete', async function (req, res) {
+        try {
+            const fs = require('fs');
+            console.log(req.body.filename)
             fs.unlink(process.cwd() + '/public/uploads/' + req.body.filename,
                 (err) => {
                     if (err) throw err;
