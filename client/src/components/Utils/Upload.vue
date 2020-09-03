@@ -91,7 +91,6 @@ export default {
       setTimeout(() => this.reset(), 5000);
     },
   },
-
   computed: {
     isInitial() {
       return this.currentStatus === STATUS_INITIAL;
@@ -100,7 +99,6 @@ export default {
       return this.currentStatus === STATUS_SAVING;
     },
     isSuccess() {
-      252;
       return this.currentStatus === STATUS_SUCCESS;
     },
     isFailed() {

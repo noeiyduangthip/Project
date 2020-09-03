@@ -103,7 +103,6 @@ module.exports = (app) => {
         try {
             const fs = require('fs');
             console.log(req.body.filename)
-            242
             fs.unlink(process.cwd() + '/public/uploads/' + req.body.filename,
                 (err) => {
                     if (err) throw err;

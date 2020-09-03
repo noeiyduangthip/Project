@@ -21,6 +21,7 @@ import BlogShow from '@/components/Blogs/ShowBlog'
 // Upload Testing
 import Upload from '@/components/Utils/Upload'
 
+
 Vue.use(Router)
 
 export default new Router({
@@ -60,7 +61,7 @@ export default new Router({
     },
     {
     path: '/blog/create',
-    name: 'blogs-edit',
+    name: 'blogs-create',
     component: BlogCreate
     },
     {
