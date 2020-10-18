@@ -1,34 +1,34 @@
-const {User} = require('../models')
+const { User } = require('../models')
 module.exports = {
     // get all user
-    async index (req, res) {
+    async index(req, res) {
         try {
             const users = await User.findAll()
             res.send(users)
-        } catch (err){
+        } catch (err) {
             res.status(500).send({
                 error: 'The users information was incorrect'
             })
         }
     },
     // create user
-    async create (req, res) {
+    async create(req, res) {
         try {
             const user = await User.create(req.body)
             res.send(user.toJSON())
         } catch (err) {
             res.status(500).send({
-                error: 'Create user incorrect'
+                error: 'User already in system'
             })
         }
     },
     // edit user, suspend, active
-    async put (req, res) {
+    async put(req, res) {
         try {
             await User.update(req.body, {
                 where: {
                     id: req.params.userId
-                 }
+                }
             })
             res.send(req.body)
         } catch (err) {
@@ -38,14 +38,14 @@ module.exports = {
         }
     },
     // delete user
-    async remove (req, res) {
+    async remove(req, res) {
         try {
             const user = await User.findOne({
                 where: {
                     id: req.params.userId
                 }
             })
-            if(!user){
+            if (!user) {
                 return res.status(403).send({
                     error: 'The user information was incorrect'
                 })
@@ -59,13 +59,31 @@ module.exports = {
         }
     },
     // get user by id
-    async show (req, res) {
+    async show(req, res) {
         try {
             const user = await User.findById(req.params.userId)
             res.send(user)
         } catch (err) {
             req.status(500).send({
                 error: 'The user information was incorrect'
+            })
+        }
+    },
+    async getFront(req, res) {
+        try {
+            const users = await User.findAll()
+            let listNames = []
+            users.forEach(user => {
+                let name = {
+                    "id": user.id,
+                    "name": `${user.name} ${user.lastname}`
+                }
+                listNames.push(name)
+            })
+            res.send(listNames)
+        } catch (err) {
+            res.status(500).send({
+                error: 'The users information was incorrect'
             })
         }
     },

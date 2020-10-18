@@ -3,7 +3,10 @@ const UserAuthenController = require('./controllers/UserAuthenController')
 const isAuthenController = require('./authen/isAuthenController')
 const BlogController = require('./controllers/BlogController')
 const CommentController = require('./controllers/CommentController')
+
+
 let multer = require("multer")
+
 // upload section
 let storage = multer.diskStorage({
     destination: function (req, file, callback) {
@@ -43,7 +46,8 @@ module.exports = (app) => {
     app.post('/login',
         UserAuthenController.login
     )
-    // blog route
+   
+     // blog route
     // create blog
     app.post('/blog',
         BlogController.create
@@ -64,7 +68,7 @@ module.exports = (app) => {
     app.get('/blogs',
         BlogController.index
     )
-
+    
     // comment route
     // create comment
     app.post('/comment',
@@ -134,5 +138,25 @@ module.exports = (app) => {
         }
     })
 
+    app.post('/front/login',
+        UserAuthenController.clientLogin
+    )
+
+    // get comment by id
+    app.get('/comment/blog/:blogId',
+        CommentController.blog
+    )
+    // get comment by id
+    app.get('/comment/user/:userId',
+        CommentController.user
+    )
+    // users
+    // get front
+    app.get('/users/front',
+        UserController.getFront
+    )
     
+ 
+
 }
+

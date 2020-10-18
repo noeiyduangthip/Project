@@ -2,11 +2,12 @@
   "name": "nv-webblog-server",
   "version": "1.0.0",
   "description": "NodeJS VueJS Webblog Server (Backend).",
+  "author": "Natnaree Duangthip",
   "main": "src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Phonnaphat Homruen",
+
   "license": "ISC",
   "dependencies": {
     "bcrypt-nodejs": "^0.0.3",
