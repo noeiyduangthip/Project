@@ -1,24 +1,19 @@
 <template>
   <div>
     <main-header navsel="front"></main-header>
-      
     <div class="clearfix"></div>
     <div class="blog-header">
-       <h1> เเบ่งปันเรื่องราว</h1>
+      <h1>เเบ่งปันเรื่องราว</h1>
       <div>
         <form class="form-inline form-search">
-          
-           
-           
-         <div class="create-write">
-          <button
-            class="btn btn-success btn-sm"
-            v-on:click="navigateTo('/write/create')"
-          >
-            Create blog 
-          </button>
-         
-        </div>
+          <div class="create-write">
+            <button
+              class="btn btn-success btn-sm"
+              v-on:click="navigateTo('/write/create')"
+            >
+              เพิ่มเรื่องราว
+            </button>
+          </div>
           &nbsp;&nbsp;
           <div class="form-group">
             <div class="input-group">
@@ -44,30 +39,43 @@
       </ul>
       <div class="clearfix"></div>
     </div>
-    
-      <div v-for="blog in blogs" v-bind:key="blog.id" class="blog-list">
-        <div class="blog-pic" v-if="blog.status == 'user'">
-          <div class="thumbnail-pic" v-if="blog.thumbnail != 'null'&& blog.status == 'user'">
-            <img v-if="blog.status == 'user'" :src="BASE_URL + blog.thumbnail" alt="thumbnail" />
-          </div>
+    <div v-for="blog in blogs" v-bind:key="blog.id" class="blog-list">
+      <div class="blog-pic" v-if="blog.status == 'user'">
+        <div
+          class="thumbnail-pic"
+          v-if="blog.thumbnail != 'null' && blog.status == 'user'"
+        >
+          <img
+            v-if="blog.status == 'user'"
+            :src="BASE_URL + blog.thumbnail"
+            alt="thumbnail"
+          />
         </div>
-        <h3 v-if="blog.status == 'user'">{{ blog.title }}</h3>
-        <div v-if="blog.status == 'user'" v-html="blog.content.slice(0, 200) + '...'"></div>
-        <div v-if="blog.status == 'user'" class="blog-info">
-         
-          <p v-if="blog.status == 'user'"><strong>Category:</strong> {{ blog.category }}</p>
-          <p v-if="blog.status == 'user'"><strong>Create:</strong> {{ blog.createdAt }}</p>
-          <p v-if="blog.status == 'user'">
-            <button v-if="blog.status == 'user'"
-              class="btn btn-sm btn-info"
-              v-on:click="navigateTo('/front/read/'+ blog.id)"
-            >
-              <i v-if="blog.status == 'user'" class="fab fa-readme"></i> View Blog
-            </button>
-          </p>
-        </div>
-        <div v-if="blog.status == 'user'" class="clearfix"></div>
       </div>
+      <h3 v-if="blog.status == 'user'">{{ blog.title }}</h3>
+      <div
+        v-if="blog.status == 'user'"
+        v-html="blog.content.slice(0, 200) + '...'"
+      ></div>
+      <div v-if="blog.status == 'user'" class="blog-info">
+        <p v-if="blog.status == 'user'">
+          <strong>Category:</strong> {{ blog.category }}
+        </p>
+        <p v-if="blog.status == 'user'">
+          <strong>Create:</strong> {{ blog.createdAt }}
+        </p>
+        <p v-if="blog.status == 'user'">
+          <button
+            v-if="blog.status == 'user'"
+            class="btn btn-sm btn-info"
+            v-on:click="navigateTo('/front/read/' + blog.id)"
+          >
+            <i v-if="blog.status == 'user'" class="fab fa-readme"></i> View Blog
+          </button>
+        </p>
+      </div>
+      <div v-if="blog.status == 'user'" class="clearfix"></div>
+    </div>
   </div>
 </template>
 <script>
@@ -178,7 +186,6 @@ export default {
   padding-left: 5px;
   padding-right: 5px;
 }
-
 .logo {
   padding-right: 20px;
 }
@@ -241,7 +248,7 @@ export default {
 }
 .categories li a {
   padding: 5px 10px 5px 10px;
-  background: paleturquoise;
+  background: rgba(90, 40, 20, 0.384);
   color: black;
   text-decoration: none;
 }
