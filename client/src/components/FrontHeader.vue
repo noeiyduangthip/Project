@@ -47,7 +47,10 @@
                 }}</router-link>
               </li>
             </transition>
-        
+            <li class="nav-item" v-if="isUserLoggedIn" role="presentation">
+             
+             <router-link :to="{ name: 'writes' }"> &nbsp;&nbsp;&nbsp;<span style="color: #000000">Write</span></router-link>
+            </li>
             <li class="nav-item" v-if="isUserLoggedIn" role="presentation">
              
               <a href="#" v-on:click.prevent="logout">&nbsp;&nbsp;&nbsp;<span style="color: #000000">Logout</span></a>

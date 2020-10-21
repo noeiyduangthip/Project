@@ -1,6 +1,6 @@
 <template>
   <div>
-    <main-header navsel="back"></main-header>
+    <main-header navsel="front"></main-header>
     <h1>Create Blog</h1>
 
     <form v-on:submit.prevent="createBlog">
@@ -66,10 +66,7 @@
           @focus="onFocus($event)"
         />
       </p>
-      <p>
-        author:
-        <input type="text" v-model="blog.author" />
-      </p>
+     
       <p>
         category:
         <input type="text" v-model="blog.category" />
@@ -112,7 +109,7 @@ export default {
         pictures: "null",
         content: "",
         category: "",
-        status: "",
+        status: "user",
       },
       config: {
         toolbar: [
@@ -208,7 +205,7 @@ export default {
       try {
         await BlogsService.post(this.blog);
         this.$router.push({
-          name: "blogs",
+          name: "writes",
         });
       } catch (err) {
         console.log(err);

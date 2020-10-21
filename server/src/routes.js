@@ -3,8 +3,7 @@ const UserAuthenController = require('./controllers/UserAuthenController')
 const isAuthenController = require('./authen/isAuthenController')
 const BlogController = require('./controllers/BlogController')
 const CommentController = require('./controllers/CommentController')
-
-
+const WriteController = require('./controllers/WriteController')
 let multer = require("multer")
 
 // upload section
@@ -45,6 +44,27 @@ module.exports = (app) => {
     )
     app.post('/login',
         UserAuthenController.login
+    )
+       // write route
+    // create write
+    app.post('/write',
+        WriteController.create
+    )
+    // edit blog, suspend, active
+    app.put('/write/:writeId',
+        WriteController.put
+    )
+    // delete write
+    app.delete('/write/:writeId',
+        WriteController.remove
+    )
+    // get blog by id
+    app.get('/write/:writeId',
+        WriteController.show
+    )
+    // get all blog
+    app.get('/writes',
+        WriteController.index
     )
    
      // blog route
@@ -155,6 +175,7 @@ module.exports = (app) => {
     app.get('/users/front',
         UserController.getFront
     )
+    
     
  
 

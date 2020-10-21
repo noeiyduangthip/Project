@@ -26,6 +26,8 @@ import FrontIndex from '@/components/Fronts/Index'
 
 import FrontShow from '@/components/Fronts/ShowBlog'
 
+import WriteIndex from '@/components/Writes/Index'
+import WriteCreate from '@/components/Writes/CreateWrite'
 
 Vue.use(Router)
 
@@ -102,6 +104,17 @@ export default new Router({
       path: '/front/read/:blogId',
       name: 'front-read',
       component: FrontShow
+    },
+    // write
+    {
+      path: '/writes',
+      name: 'writes',
+      component: WriteIndex
+    },
+    {
+      path: '/write/create',
+      name: 'writes-create',
+      component: WriteCreate
     },
     
   ]
